@@ -1,0 +1,35 @@
+<h1 id="page_container">THiS ThA ABouT PaGe</h1>
+<div id="page_container">
+	<style>
+		#color_me_in {
+			background-color: <%= @color %>;
+			color: white;
+			width: 250px;
+			height: 250px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			border-radius: 24%;
+		}
+		#page_container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+
+
+	<div id="color_me_in">
+		<p>
+			<%= @color.upcase %> BOX ACTIVATED!
+		</p>
+	</div>
+</div>
+<div id="page_container">
+<%= form_tag index_path do %>
+	<p><%= text_field_tag :name, nil, placeholder: "What's your name"%></p>
+	<p><%= submit_tag :submit %></p>
+
+<% end %>
+</div>
