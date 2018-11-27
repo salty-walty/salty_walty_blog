@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @comment.author %>
-</p>
-
-<p>
-  <strong>Comment entry:</strong>
-  <%= @comment.comment_entry %>
-</p>
-
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p>
+		  <strong>Author:</strong>
+		  <%= @comment.author %>
+		</p>
+	</div>
+	<div class="panel-body">
+		<p>
+		  <strong>Comment entry:</strong>
+		  <%= @comment.comment_entry %>
+		</p>
+	</div>
+</div>
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

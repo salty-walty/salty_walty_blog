@@ -28,7 +28,7 @@ a {
 
   &:hover {
     color: #fff;
-    background-color: #000;
+
   }
 }
 
@@ -81,4 +81,12 @@ div {
 
 label {
   display: block;
+}
+
+.jumbotron {
+    background-color:#D8A0EC !important; 
+}
+
+.nav {
+  text-align: right;
 }

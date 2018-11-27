@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SaltyWaltyBlog</title>
+    <title>The Blog of The Salt DOGG</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Salty Walty's Blog</h1>
+        <p class="lead">This hand crafted blog is full of all the information you may have never thought you needed.</p>
+      </div>
+    </div>
+
     <div class="container">
+      <ul class="nav nav-pills justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="http://localhost:3000/"><h4>Posts</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/posts/new"><h4>New Post</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><h4>Login</h4></a>
+      </li>
+    </ul>
     <%= yield %>
     </div>
   </body>
