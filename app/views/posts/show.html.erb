@@ -9,6 +9,10 @@
 		</p>
 
 		<p>
+			<%= @post.author %> posted <%= time_ago_in_words(@post.created_at) %> ago
+		</p>
+
+		<p>
 		  <strong>Author:</strong>
 		  <%= @post.author %>
 		</p>
@@ -26,6 +30,7 @@
 	<div class="panel-footer">
 		<% @post.comments.each do |comment| %>
 			<p><%= comment.author%></p>
+			<p><%= time_ago_in_words(comment.created_at) %> ago</p>
 			<p><%= comment.comment_entry %></p>
 		<% end %>
 
