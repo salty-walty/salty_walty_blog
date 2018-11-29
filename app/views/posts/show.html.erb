@@ -9,34 +9,58 @@
 		</p>
 
 		<p>
-			<%= @post.author %> posted <%= time_ago_in_words(@post.created_at) %> ago
+			<%= link_to @post.user.username, user_posts_path(name: @post.user_id) %> posted <%= time_ago_in_words(@post.created_at) %> ago
 		</p>
 
 		<p>
+		<ul class="list-inline">
 		  <strong>Author:</strong>
-		  <%= @post.author %>
+		  <li><%= link_to @post.user.username, user_posts_path(name: @post.user.username) %></li>
+		  <li><%= image_tag profile_pic(@post.user.avatar.url), size:30 %></li>
+		</ul>
 		</p>
 	</div>	
 
 	<div class="panel-body">
 		<p>
 		  <strong>Blog entry:</strong>
-		  <%= @post.blog_entry %>
+		  <%= @post.blog_entry.html_safe %>
 		</p>
 	</div>
+</div>
 
 <!-- 	</div> -->
+<div class="panel panel-default">
+
+	<div class="panel-heading"><h4>Comments</h4></div>
+
+	<div>
+		<div class="panel-body">
+			<div class="panel panel-success">
+				<% @post.comments.each do |comment| %>
+					<div class="panel-heading">
+					<ul class="list-inline">
+					<li><%= image_tag profile_pic(comment.user.avatar.url), size:30 %></li>
+					<li><%= link_to comment.user.username, user_posts_path(name: comment.user.username) %> said <%= time_ago_in_words(comment.created_at) %> ago</li>
+					</ul>
+					</div>
+					<div class="panel-body">
+					<p><%= comment.comment_entry.html_safe %></p>
+					</div>
+					
+					<div class="panel-footer"></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
 	<div class="panel-footer">
-		<% @post.comments.each do |comment| %>
-			<p><%= comment.author%></p>
-			<p><%= time_ago_in_words(comment.created_at) %> ago</p>
-			<p><%= comment.comment_entry %></p>
-		<% end %>
-
-		<%= link_to 'Edit', edit_post_path(@post) %> 
-		<div id="comments">
-			<%= render 'comments/form', comment: @comment %>
+			<div class="panel-default">
+				<%= link_to 'Edit', edit_post_path(@post) %> 
+				<div class="panel-body"id="comments">
+					<%= render 'comments/form', comment: @comment %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

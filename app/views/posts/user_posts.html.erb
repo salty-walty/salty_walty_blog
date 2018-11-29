@@ -2,7 +2,7 @@
 
 <div class="panel panel-info">
   <div class="panel-heading ">
-    <h1>Posts</h1>
+    <h1>All posts by <%= @user.username %></h1>
   </div>
 
   <div class="panel-body">
@@ -17,13 +17,13 @@
           </thead>
         
           <tbody>
-            <% @posts.each do |post| %>
+            <% @user.posts.each do |post| %>
               <tr>
                 <td>
                   <%= image_tag profile_pic(post.user.avatar.url), size:30 %>
                 </td>
                 <td><%= link_to post.title, post %></td>
-                <td><%= link_to post.user.username, user_posts_path(name: post.user.username) %></td>
+                <td><%= post.user.username %></td>
                 <td><%= post.blog_entry.html_safe %></td>
                 <td><%= link_to 'Show', post %></td>
                 <td><%= link_to 'Edit', edit_post_path(post) %></td>
@@ -38,9 +38,7 @@
     </div>
   <div class="panel-footer justify-content-center">
   <ul class="list-inline">
-    <li><%= paginate @posts %></li>
-    <li class="pull-right"><br><p><%= link_to 'New Post', new_post_path %></p></li>
+    <li class="pull-right"><br><p><%= link_to 'Back', posts_path %></p></li>
   </ul>
   </div>
 </div>
-

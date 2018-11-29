@@ -17,7 +17,7 @@
     </div>
 
     <div class="container">
-      <ul class="nav nav-pills justify-content-end">
+      <ul class="nav nav-pills">
       <li class="nav-item">
         <a class="nav-link active" href="http://localhost:3000/"><h4>Posts</h4></a>
       </li>
@@ -25,7 +25,21 @@
         <a class="nav-link" href="http://localhost:3000/posts/new"><h4>New Post</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><h4>Login</h4></a>
+        <a class="nav-link" href="http://localhost:3000/users/sign_in"><h4>Login</h4></a>
+      </li>
+      <li class="nav-item pull-right">
+        <% if user_signed_in? %>
+          <ul class="list-inline">
+          <%if current_user.avatar.url %>
+          <li><%= image_tag current_user.avatar.url, size:20 %></li>
+          <% end %>
+          <li><p>Welcome <%= current_user.username %>!</p></li>
+          </ul>
+          <ul class="list-inline">
+          <li><h4><%= link_to "Edit Profile", edit_user_registration_path , class: "btn btn-primary" %></h4></li>
+          <li><h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></h4></li>
+          </ul>
+        <% end %>
       </li>
     </ul>
     <%= yield %>
