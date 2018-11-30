@@ -26,6 +26,13 @@
 		  <strong>Blog entry:</strong>
 		  <%= @post.blog_entry.html_safe %>
 		</p>
+		<p>
+		  <%if @post.avatar.url %>
+		  	<%= image_tag @post.avatar.url, size:150 %>
+		  <%else%>
+		  <%end%>
+		</p>
+		
 	</div>
 </div>
 
