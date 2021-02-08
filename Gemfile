@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.4'
 
 gem 'kaminari'
-gem 'carrierwave', '~>1.0'
+gem 'carrierwave', '~>1.3'
 gem 'gravatarify', '~>3.0.0'
 gem 'devise'
 gem 'sass-rails', '~>5.0'
